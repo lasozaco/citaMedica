@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Auth\Admin;
 
 use Illuminate\Http\Request;
 use App\Models\Specialty;
@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 
 class SpecialtyController extends Controller
 {
-    
 
     public function index(){
         $specialties = Specialty::all();
@@ -29,7 +28,7 @@ class SpecialtyController extends Controller
         'name.required' => 'El nombre de la especialidad es obligatorio.',
         'name.min' => 'El nombre de la especialidad debe tener más de 3 caracteres.'
       ];
-        
+
        $this->validate($request, $rules, $messages);
 
        $specialty = new Specialty();

@@ -16,7 +16,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="{{ url('/especialidades')}}">
+            <a class="nav-link " href="/especialidades">
               <i class="ni ni-briefcase-24 text-blue"></i> Especialidades
             </a>
           </li>

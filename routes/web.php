@@ -1,6 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\PatientController;
+use App\Http\Controllers\Auth\Patient\PatientController;
+use App\Http\Controllers\Auth\Admin\SpecialtyController;
+use App\Http\Controllers\Auth\Doctor\DoctorController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,8 +14,17 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Rutas Medicos
-//Route::resource('medicos', 'App\Http\Controllers\admin\DoctorController');
+// recordatorio para definir rutas de resources debes definirlas de esta manera
+// importarlo use App\Http\Controllers\Auth\Doctor\DoctorController
+// y luego Route::resource('ruta', NombreControlador::class)
+// se me apago el cel, hasta luego compitruenos!!, profe de laura, ella no hizo nada
+// @Davicho-Dev en GitHub
 
-//Rutas Pacientes 
-Route::resource('pacientes', App\Http\Controllers\admin\PatientController::class);
+// Rutas Medicos
+Route::resource('medicos', DoctorController::class);
+
+// Rutas Especialidades
+Route::resource('especialidades', SpecialtyController::class);
+
+//Rutas Pacientes
+Route::resource('pacientes', PatientController::class);
