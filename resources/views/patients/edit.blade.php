@@ -31,9 +31,10 @@ use Illuminate\Support\Str;
                     @endforeach
                 @endif
 
-                <form action="{{ url('/pacientes/'.$patient->id)}}" method="POST">
+                <form action="{{ route('pacientes.update', $patient->id)}}" method="POST">
                     @csrf
-                    @method('PUT')
+                    {{ method_field('PATCH') }}
+                    {{-- @method('PUT') --}}
                     <div class="form-group">
                         <label for="name">Nombre del paciente</label>
                         <input type="text" name="name" class="for-control"

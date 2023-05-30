@@ -21,10 +21,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // @Davicho-Dev en GitHub
 
 // Rutas Medicos
-Route::resource('medicos', DoctorController::class);
+Route::resource('medicos', DoctorController::class)->names('medicos');
 
 // Rutas Especialidades
-Route::resource('especialidades', SpecialtyController::class);
+Route::resource('especialidades', SpecialtyController::class)->names('especialidades');
 
 //Rutas Pacientes
-Route::resource('pacientes', PatientController::class);
+Route::resource('pacientes', PatientController::class)->names('pacientes');

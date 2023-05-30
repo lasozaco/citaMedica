@@ -27,21 +27,12 @@
                     @endforeach
                 @endif
 
-                <form action="{{ url('/especialidades/'.$specialty->id)}}" method="POST">
+                <form action="{{ route('especialidades.edit', $data->id) }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
-                    @method('PUT')
-                    <div class="form-group">
-                        <label for="name">Nombre de la especialidad</label>
-                        <input type="text" name="name" class="for-control" 
-                        value="{{ old('name' , $specialty->name)}}" required>
-                    </div>
+                    {{ method_field('PATCH') }}
 
-                    <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <input type="text" name="description" class="for-control" 
-                        value="{{old ('description', $specialty->description)}}">
-                    </div>
-                    <button type="submit" class="btn btn-sm btn-primary">Guardar especialidad</button>
+                    @include('specialties.form')
+                    
                 </form>
             </div>
 

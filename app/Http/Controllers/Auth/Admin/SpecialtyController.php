@@ -9,71 +9,81 @@ use App\Http\Controllers\Controller;
 class SpecialtyController extends Controller
 {
 
-    public function index(){
-        $specialties = Specialty::all();
-        return view('specialties.index', compact('specialties'));
-    }
+  public function index()
+  {
+    $specialties = Specialty::all();
+    return view('specialties.index', compact('specialties'));
+  }
 
-    public function create(){
-        return view('specialties.create');
-    }
+  public function create()
+  {
+    $data = new Specialty();
+    return view('specialties.create', compact('data'));
+  }
 
-    public function sendData(Request $request ){
+  public function store(Request $request)
+  {
 
-      $rules = [
-        'name' => 'required|min:3'
-      ];
+    $rules = [
+      'name' => 'required|min:3'
+    ];
 
-      $messages = [
-        'name.required' => 'El nombre de la especialidad es obligatorio.',
-        'name.min' => 'El nombre de la especialidad debe tener más de 3 caracteres.'
-      ];
+    $messages = [
+      'name.required' => 'El nombre de la especialidad es obligatorio.',
+      'name.min' => 'El nombre de la especialidad debe tener más de 3 caracteres.'
+    ];
 
-       $this->validate($request, $rules, $messages);
+    $this->validate($request, $rules, $messages);
 
-       $specialty = new Specialty();
-       $specialty->name = $request->input('name');
-       $specialty->description = $request->input('description');
-       $specialty->save();
-       $notification= 'La especialidad se ha creado correctamente.';
+    $specialty = new Specialty();
+    $specialty->name = $request->name;
+    $specialty->description = $request->description;
 
-       return redirect('/especialidades')->with(compact('notification'));
-    }
+    $specialty->save();
 
-    public function edit(Specialty $specialty){
-        return view ('specialties.edit' , compact('specialty'));
-    }
+    $notification = 'La especialidad se ha creado correctamente.';
 
+    return redirect()->route('especialidades.index')->with(compact('notification'));
+  }
 
-    public function update(Request $request ,Specialty $specialty){
-
-        $rules = [
-          'name' => 'required|min:3'
-        ];
-  
-        $messages = [
-          'name.required' => 'El nombre de la especialidad es obligatorio.',
-          'name.min' => 'El nombre de la especialidad debe tener más de 3 caracteres.'
-        ];
-          
-         $this->validate($request, $rules, $messages);
-  
-         $specialty->name = $request->input('name');
-         $specialty->description = $request->input('description');
-         $specialty->save();
-
-         $notification = 'La especialidad se ha actualizado correctamente.';
-  
-         return redirect('/especialidades')->with (compact('notification'));
-      }
+  public function edit($id)
+  {
+    $data = Specialty::findOrFail($id);
+    return view('specialties.edit', compact('data'));
+  }
 
 
-      public function destroy(Specialty $specialty){
-        $delateName = $specialty->name;
-        $specialty->delete();
+  public function update(Request $request, Specialty $specialty)
+  {
 
-        $notification = 'La especialidad '.$delateName.' se ha eliminado correctamente.';
+    $rules = [
+      'name' => 'required|min:3'
+    ];
 
-        return redirect('/especialidades')->with(compact('notification'));
-      }
+    $messages = [
+      'name.required' => 'El nombre de la especialidad es obligatorio.',
+      'name.min' => 'El nombre de la especialidad debe tener más de 3 caracteres.'
+    ];
+
+    $this->validate($request, $rules, $messages);
+
+    $specialty->name = $request->input('name');
+    $specialty->description = $request->input('description');
+    $specialty->save();
+
+    $notification = 'La especialidad se ha actualizado correctamente.';
+
+    return redirect()->route('especialidades.index')->with(compact('notification'));
+  }
+
+
+  public function destroy(Specialty $specialty)
+  {
+    $delateName = $specialty->name;
+    $specialty->delete();
+
+    $notification = 'La especialidad ' . $delateName . ' se ha eliminado correctamente.';
+
+    return redirect()->route('especialidades.index')->with(compact('notification'));
+  }
 }

@@ -27,18 +27,10 @@
                     @endforeach
                 @endif
 
-                <form action="{{ url('/especialidades')}}" method="POST">
+                <form action="{{ route('especialidades.store')}}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label for="name">Nombre de la especialidad</label>
-                        <input type="text" name="name" class="for-control" value="{{ old('name')}}" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Descripción</label>
-                        <input type="text" name="description" class="for-control" value="{{old ('description')}}">
-                    </div>
-                    <button type="submit" class="btn btn-sm btn-primary">Crear especialidad</button>
+                    
+                    @include('specialties.form')
                 </form>
             </div>
 

@@ -14,7 +14,6 @@ class PatientController extends Controller
      */
     public function index()
     {
-        echo 'This is a test';
         $patients = User::patients()->paginate(10);
         return view('patients.index', compact('patients'));
     }
@@ -34,12 +33,12 @@ class PatientController extends Controller
     {
         $rules = [
             'name' => 'required|min:3',
-            'email'=> 'required|email',
-            'cedula'=> 'required|digits:10',
-            'address'=> 'nullable|min:6',
-            'phone'=> 'required',
+            'email' => 'required|email',
+            'cedula' => 'required|digits:10',
+            'address' => 'nullable|min:6',
+            'phone' => 'required',
         ];
-    
+
         $messages = [
             'name.required' => 'El nombre del paciente es obligatorio.',
             'name.min' => 'El nombre del paciente debe tener más de 3 caracteres',
@@ -53,14 +52,14 @@ class PatientController extends Controller
         $this->validate($request, $rules, $messages);
 
         User::create(
-            $request->only( 'name', 'email', 'cedula', 'address', 'phone')
-            +[
-                'role' => 'paciente',
-                'password'=> bcrypt($request->input('password'))
-            ]
-            );
-            $notification = 'El paciente se ha registrado correctamente.';
-            return redirect('/pacientes ')->with(compact('notification'));
+            $request->only('name', 'email', 'cedula', 'address', 'phone')
+                + [
+                    'role' => 'paciente',
+                    'password' => bcrypt($request->input('password'))
+                ]
+        );
+        $notification = 'El paciente se ha registrado correctamente.';
+        return redirect('/pacientes ')->with(compact('notification'));
     }
 
     /**
@@ -87,12 +86,12 @@ class PatientController extends Controller
     {
         $rules = [
             'name' => 'required|min:3',
-            'email'=> 'required|email',
-            'cedula'=> 'required|digits:10',
-            'address'=> 'nullable|min:6',
-            'phone'=> 'required',
+            'email' => 'required|email',
+            'cedula' => 'required|digits:10',
+            'address' => 'nullable|min:6',
+            'phone' => 'required',
         ];
-    
+
         $messages = [
             'name.required' => 'El nombre del paciente es obligatorio',
             'name.min' => 'El nombre del paciente debe tener más de 3 caracteres',
@@ -104,20 +103,19 @@ class PatientController extends Controller
             'phone.required' => 'El número de teléfono es obligatorio',
         ];
         $this->validate($request, $rules, $messages);
-        $user = User::doctors()->findOrFail($id);
+        $user = User::findOrFail($id);
 
-        $data = $request->only( 'name', 'email', 'cedula', 'address', 'phone');
+        $data = $request->only('name', 'email', 'cedula', 'address', 'phone');
         $password = $request->input('password');
 
-        if($password){
+        if ($password) {
             $data['password'] = bcrypt($password);
         }
         $user->fill($data);
-        $user->save();
-     
-            $notification = 'La información del paciente se ha actualizado correctamente.';
-            return redirect('/pacientes')->with(compact('notification'));
-       
+        $user->update($request->all());
+
+        $notification = 'La información del paciente se ha actualizado correctamente.';
+        return redirect('/pacientes')->with(compact('notification'));
     }
 
     /**
