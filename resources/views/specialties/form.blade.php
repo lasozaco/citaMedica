@@ -1,9 +1,5 @@
-
-
 <div class="form-group">
     {{ Form::label('Nombre de la especialidad') }}
-    {{-- <label for="name">Nombre de la especialidad</label> --}}
-    {{-- <input type="text" name="name" class="for-control" value="{{ old('name', $specialty->name) }}" required>--}}
     {{ Form::text('name', $data->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
 </div>
 

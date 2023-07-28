@@ -69,7 +69,7 @@ class SpecialtyController extends Controller
 
     $specialty->name = $request->input('name');
     $specialty->description = $request->input('description');
-    $specialty->save();
+    $specialty->update($request->all());
 
     $notification = 'La especialidad se ha actualizado correctamente.';
 

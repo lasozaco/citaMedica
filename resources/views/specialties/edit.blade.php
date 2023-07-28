@@ -27,7 +27,7 @@
                     @endforeach
                 @endif
 
-                <form action="{{ route('especialidades.edit', $data->id) }}" method="POST" role="form" enctype="multipart/form-data">
+                <form action="{{ route('especialidades.update', $data->id) }}" method="POST" role="form" enctype="multipart/form-data">
                     @csrf
                     {{ method_field('PATCH') }}
 
