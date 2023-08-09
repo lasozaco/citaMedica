@@ -79,10 +79,10 @@ class SpecialtyController extends Controller
 
   public function destroy(Specialty $specialty)
   {
-    $delateName = $specialty->name;
+    $deleteName = $specialty->name;
     $specialty->delete();
 
-    $notification = 'La especialidad ' . $delateName . ' se ha eliminado correctamente.';
+    $notification = 'La especialidad ' . $deleteName . ' se ha eliminado correctamente.';
 
     return redirect()->route('especialidades.index')->with(compact('notification'));
   }

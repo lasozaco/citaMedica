@@ -125,10 +125,10 @@ class DoctorController extends Controller
     {
         $user = User::doctors()->findOrFail($id);
         $doctorName = $user->name;
-        $user->delate();
+        $user->delete();
 
         $notification = "El médico $doctorName se elimino correctamente";
-        return redirect('/medicos')->with(compact('notificaton'));
+        return redirect('/medicos')->with(compact('notification'));
 
     }
 }

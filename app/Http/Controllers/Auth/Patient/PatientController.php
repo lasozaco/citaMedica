@@ -125,7 +125,7 @@ class PatientController extends Controller
     {
         $user = User::Patients()->findOrFail($id);
         $PacienteName = $user->name;
-        $user->delate();
+        $user->delete();
 
         $notification = "El paciente $PacienteName se elimino correctamente";
         return redirect('/pacientes')->with(compact('notificaton'));
