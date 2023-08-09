@@ -52,7 +52,7 @@ class DoctorController extends Controller
         $this->validate($request, $rules, $messages);
 
         User::create(
-            $request->only( 'name', 'email', 'cedula', 'address', 'phone')
+            $request->only( 'name','email','cedula','address','phone')
             +[
                 'role' => 'doctor',
                 'password'=> bcrypt($request->input('password'))
@@ -105,12 +105,12 @@ class DoctorController extends Controller
         $this->validate($request, $rules, $messages);
         $user = User::doctors()->findOrFail($id);
 
-        $data = $request->only( 'name', 'email', 'cedula', 'address', 'phone');
+        $data = $request->only( 'name','email','cedula','address','phone');
         $password = $request->input('password');
 
-        if($password){
+        if($password)
             $data['password'] = bcrypt($password);
-        }
+        
         $user->fill($data);
         $user->save();
      
