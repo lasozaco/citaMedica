@@ -36,34 +36,33 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="name">Nombre del medico</label>
-                        <input type="text" name="name" class="for-control" value="{{ old('name', $doctor->name)}}">
+                        <input type="text" name="name" class="form-control" value="{{ old('name', $doctor->name)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="email">Correo eléctronico</label>
-                        <input type="text" name="email" class="for-control" value="{{old ('email', $doctor->email)}}">
+                        <input type="text" name="email" class="form-control" value="{{old ('email', $doctor->email)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="cedula">Cédula</label>
-                        <input type="text" name="cedula" class="for-control" 
-                        value="{{old ('cedula', $doctor->cedula)}}">
+                        <input type="text" name="cedula" class="form-control" value="{{old ('cedula', $doctor->cedula)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input type="text" name="address" class="for-control"
+                        <input type="text" name="address" class="form-control"
                          value="{{old ('address', $doctor->address)}}">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">teléfono /Móvil</label>
-                        <input type="text" name="phone class="for-control" value="{{old ('phone', $doctor->phone)}}">
+                        <label for="phone">teléfono / Móvil</label>
+                        <input type="text" name="phone" class="form-control" value="{{old ('phone', $doctor->phone)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password class="for-control">mall class="">
+                        <input type="text" name="password" class="form-control">
                         <small class="text-warning">Solo llena el campo si desae cambiar la contraseña</small>
                     </div>
 
