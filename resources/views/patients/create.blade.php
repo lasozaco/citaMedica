@@ -35,32 +35,32 @@ use Illuminate\Support\Str;
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre del paciente</label>
-                        <input type="text" name="name" class="for-control" value="{{ old('name')}}" required>
+                        <input type="text" name="name" class="form-control" value="{{ old('name')}}" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Correo eléctronico</label>
-                        <input type="text" name="email" class="for-control" value="{{old ('email')}}">
+                        <input type="text" name="email" class="form-control" value="{{old ('email')}}">
                     </div>
 
                     <div class="form-group">
                         <label for="cedula">Cédula</label>
-                        <input type="text" name="cedula" class="for-control" value="{{old ('cedula')}}">
+                        <input type="text" name="cedula" class="form-control" value="{{old ('cedula')}}">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input type="text" name="address" class="for-control" value="{{old ('address')}}">
+                        <input type="text" name="address" class="form-control" value="{{old ('address')}}">
                     </div>
 
                     <div class="form-group">
                         <label for="phone">teléfono /Móvil</label>
-                        <input type="text" name="phone" class="for-control" value="{{old ('phone')}}">
+                        <input type="text" name="phone" class="form-control" value="{{old ('phone')}}">
                     </div>
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password" class="for-control" 
+                        <input type="text" name="password" class="formgit-control" 
                         value="{{old ('password', Str::random(8))}}">
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary">Crear paciente</button>

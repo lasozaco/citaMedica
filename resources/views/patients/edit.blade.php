@@ -37,35 +37,35 @@ use Illuminate\Support\Str;
                     {{-- @method('PUT') --}}
                     <div class="form-group">
                         <label for="name">Nombre del paciente</label>
-                        <input type="text" name="name" class="for-control"
+                        <input type="text" name="name" class="form-control"
                          value="{{ old('name', $patient->name)}}" required>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Correo eléctronico</label>
-                        <input type="text" name="email" class="for-control" value="{{old ('email', $patient->email)}}">
+                        <input type="text" name="email" class="form-control" value="{{old ('email', $patient->email)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="cedula">Cédula</label>
-                        <input type="text" name="cedula" class="for-control" 
+                        <input type="text" name="cedula" class="form-control" 
                         value="{{old ('cedula', $patient->cedula)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="address">Dirección</label>
-                        <input type="text" name="address" class="for-control" 
+                        <input type="text" name="address" class="form-control" 
                         value="{{old ('address', $patient->address)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="phone">teléfono /Móvil</label>
-                        <input type="text" name="phone" class="for-control" value="{{old ('phone', $patient->phone)}}">
+                        <input type="text" name="phone" class="form-control" value="{{old ('phone', $patient->phone)}}">
                     </div>
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password" class="for-control" >
+                        <input type="text" name="password" class="form-control" >
                         <small class="text-warning">Solo llena el campo si desea cambiar la contraseña</small>
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary">Guardar cambios</button>
