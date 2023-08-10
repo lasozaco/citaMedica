@@ -41,10 +41,10 @@
                                 {{ $especialidad->description }}
                             </td>
                             <td>
-                                <form action="{{ route('especialidades.edit', $especialidad->id) }}" method="POST">
+                                <form action="{{ url('/especialidades/'.$especialidad->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{ route('especialidades.destroy',$especialidad->id . '/edit') }}"
+                                    <a href="{{ url('/especialidades/'.$especialidad->id.'/edit')}}"
                                         class="btn btn-sm btn-primary">Editar</a>
                                     <button type="submit" class="btn btn-sm btn-danger">Eliminar</button>
 
