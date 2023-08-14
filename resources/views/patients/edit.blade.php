@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
                   <h3 class="mb-0">Editar paciente</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="{{url('/pacientes')}}" class="btn btn-sm btn-success">
+                  <a href="{{route('pacientes.index')}}" class="btn btn-sm btn-success">
                   <i class= "fas fa-chevron-left"></i>  
                   Regresar</a>
                 </div>
@@ -65,7 +65,7 @@ use Illuminate\Support\Str;
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password" class="form-control" >
+                        <input type="password" name="password" class="form-control" value="{{old ('phone', $patient->password)}}">
                         <small class="text-warning">Solo llena el campo si desea cambiar la contraseña</small>
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary">Guardar cambios</button>

@@ -84,12 +84,10 @@ class PatientController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $user = User::findOrFail($id);
-        $request->password=$user->password;
         $rules = [
             'name' => 'required|min:3',
             'email' => 'required|email',
-            'cedula' => 'required|digits:10',
+            'cedula' => 'required|min:5',
             'address' => 'nullable|min:6',
             'phone' => 'required',
         ];
@@ -105,7 +103,7 @@ class PatientController extends Controller
             'phone.required' => 'El número de teléfono es obligatorio',
         ];
         $this->validate($request, $rules, $messages);
-        
+        $user = User::findOrFail($id);
 
         $data = $request->only('name', 'email', 'cedula', 'address', 'phone');
         $password = $request->input('password');
