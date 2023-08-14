@@ -53,9 +53,9 @@ class SpecialtyController extends Controller
   }
 
 
-  public function update(Request $request, Specialty $specialty)
+  public function update(Request $request)
   {
-
+    $specialty = Specialty::findOrFail($request->id);
     $rules = [
       'name' => 'required|min:3'
     ];
@@ -69,7 +69,8 @@ class SpecialtyController extends Controller
 
     $specialty->name = $request->input('name');
     $specialty->description = $request->input('description');
-    $specialty->update($request->all());
+    
+    $specialty-> save();
 
     $notification = 'La especialidad se ha actualizado correctamente.';
 
@@ -77,8 +78,10 @@ class SpecialtyController extends Controller
   }
 
 
-  public function destroy(Specialty $specialty)
+  public function destroy($id)
   {
+
+    $specialty = Specialty::findOrFail($id);
     $deleteName = $specialty->name;
     $specialty->delete();
 

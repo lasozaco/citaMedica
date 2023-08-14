@@ -60,7 +60,8 @@
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password" class="form-control" value="{{old ('password', Str::random(8)) }}">
+                        <input type="text" name="password" 
+                        class="form-control" value="{{old ('password', Str::random(8)) }}">
                     </div>
 
                     <button type="submit" class="btn btn-sm btn-primary">Crear médico</button>

@@ -1,3 +1,9 @@
+
+
+<div class="form-group mb-3">
+    {!! Form::hidden('id', $data->id, ['class' => 'form-control']) !!}
+</div>
+
 <div class="form-group">
     {{ Form::label('Nombre de la especialidad') }}
     {{ Form::text('name', $data->name, ['class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}

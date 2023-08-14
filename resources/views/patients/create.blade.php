@@ -31,11 +31,11 @@ use Illuminate\Support\Str;
                     @endforeach
                 @endif
 
-                <form action="{{ url('/pacientes')}}" method="POST">
+                <form action="{{ route('/pacientes')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre del paciente</label>
-                        <input type="text" name="name" class="form-control" value="{{ old('name')}}" required>
+                        <input type="text" name="name" class="form-control" value="{{old('name')}}" required>
                     </div>
 
                     <div class="form-group">
@@ -60,7 +60,7 @@ use Illuminate\Support\Str;
 
                     <div class="form-group">
                         <label for="password">Contraseña</label>
-                        <input type="text" name="password" class="formgit-control" 
+                        <input type="text" name="password" class="form-control" 
                         value="{{old ('password', Str::random(8))}}">
                     </div>
                     <button type="submit" class="btn btn-sm btn-primary">Crear paciente</button>
