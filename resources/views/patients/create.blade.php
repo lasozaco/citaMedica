@@ -13,7 +13,7 @@ use Illuminate\Support\Str;
                   <h3 class="mb-0">Nuevo paciente</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="{{url('/pacientes')}}" class="btn btn-sm btn-success">
+                  <a href="{{route('pacientes.create')}}" class="btn btn-sm btn-success">
                   <i class= "fas fa-chevron-left"></i>  
                   Regresar</a>
                 </div>
@@ -31,7 +31,7 @@ use Illuminate\Support\Str;
                     @endforeach
                 @endif
 
-                <form action="{{ route('/pacientes')}}" method="POST">
+                <form action="{{ route('pacientes.store')}}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="name">Nombre del paciente</label>

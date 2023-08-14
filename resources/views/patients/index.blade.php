@@ -9,7 +9,7 @@
                   <h3 class="mb-0">Pacientes</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="{{url('/pacientes/create')}}" class="btn btn-sm btn-primary">Nuevo paciente</a>
+                  <a href="{{route('pacientes.create')}}" class="btn btn-sm btn-primary">Nuevo paciente</a>
                 </div>
               </div>
             </div>
