@@ -59,7 +59,7 @@ class PatientController extends Controller
                 ]
         );
         $notification = 'El paciente se ha registrado correctamente.';
-        return redirect('/pacientes ')->with(compact('notification'));
+        return redirect()->route('pacientes.index')->with(compact('notification'));
     }
 
     /**
@@ -115,7 +115,7 @@ class PatientController extends Controller
         $user->update($request->all());
 
         $notification = 'La información del paciente se ha actualizado correctamente.';
-        return redirect('/pacientes')->with(compact('notification'));
+        return redirect()->route('pacientes.index')->with(compact('notification'));
     }
 
     /**
@@ -128,6 +128,6 @@ class PatientController extends Controller
         $user->delete();
 
         $notification = "El paciente $PacienteName se elimino correctamente";
-        return redirect('/pacientes')->with(compact('notificaton'));
+        return redirect()->route('pacientes.index')->with(compact('notification'));
     }
 }
