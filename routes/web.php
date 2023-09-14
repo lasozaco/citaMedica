@@ -29,4 +29,5 @@ Route::resource('especialidades', SpecialtyController::class)->names('especialid
 //Rutas Pacientes
 Route::resource('pacientes', PatientController::class)->names('pacientes');
 
+//Falta el Admin para las routas, de especiaidades, medicos y pacientes.
 });
