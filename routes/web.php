@@ -14,9 +14,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// recordatorio para definir rutas de resources debes definirlas de esta manera
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // recordatorio para definir rutas de resources debes definirlas de esta manera
 // importarlo use App\Http\Controllers\Auth\Doctor\DoctorController
-// y luego Route::resource('ruta', NombreControlador::class)
+// y luego Route::resource('ruta', NombreControlador::class) 
 
 // Rutas Medicos
 Route::resource('medicos', DoctorController::class)->names('medicos');
@@ -26,3 +28,5 @@ Route::resource('especialidades', SpecialtyController::class)->names('especialid
 
 //Rutas Pacientes
 Route::resource('pacientes', PatientController::class)->names('pacientes');
+
+});
