@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Specialty extends Model
+class CancelledAppointment extends Model
 {
     use HasFactory;
 
-    public function users(){
-        return $this->belongsToMany(User::class)->withTimestamps();
+    public function cancelled_by(){
+        return $this->belongsTo(User::class);
     }
 }
